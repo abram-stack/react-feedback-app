@@ -5,7 +5,7 @@ import RatingSelect from './RatingSelect';
 import FeedbackContext from '../context/FeedbackContext';
 
 const FeedbackForm = () => {
-  const { addFeedback, feedbackEditEntry, updateFeedback, setFeedbackEdit } = useContext(FeedbackContext);
+  const { addFeedback, feedbackEditEntry, updateFeedback } = useContext(FeedbackContext);
 
   const [text, setText] = useState('');
   const [rating, setRating] = useState(10);
