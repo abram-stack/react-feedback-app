@@ -51,11 +51,11 @@ export const FeedbackProvider = ({ children }) => {
 
   const updateFeedback = (id, updatedItem) => {
     setFeedback(feedback.map((item) => item.id === id ? { ...item, ...updatedItem } : item))
-    console.log('reset item and rating')
     setFeedbackEdit({
         item: {},
-      edit: false
+        edit: false
     })
+    
   };
 
   return (

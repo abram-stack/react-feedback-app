@@ -50,10 +50,8 @@ const FeedbackForm = () => {
       }
 
       setText('');
-      setFeedbackEdit({
-        item: {},
-      edit: false
-    })
+      setRating(10);
+      setBtnDisabled(true);
     }
   }
 
