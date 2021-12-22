@@ -5,10 +5,10 @@ import RatingSelect from './RatingSelect';
 import FeedbackContext from '../context/FeedbackContext';
 
 const FeedbackForm = () => {
-  const { addFeedback, feedbackEditEntry } = useContext(FeedbackContext);
+  const { addFeedback, feedbackEditEntry, updateFeedback, setFeedbackEdit } = useContext(FeedbackContext);
 
   const [text, setText] = useState('');
-  const [rating, setRating] = useState('');
+  const [rating, setRating] = useState(10);
   const [btnDisabled, setBtnDisabled] = useState(true);
   const [message, setMessage] = useState('');
 
@@ -43,10 +43,21 @@ const FeedbackForm = () => {
         text: text,
         rating: rating
       }
-      addFeedback(newFeedback);
+      if (feedbackEditEntry.edit === true) {
+        updateFeedback(feedbackEditEntry.item.id, newFeedback)
+      } else {
+        addFeedback(newFeedback);
+      }
+
       setText('');
+      setFeedbackEdit({
+        item: {},
+      edit: false
+    })
     }
   }
+
+  
   return (
     <Card>
       <form onSubmit={handleSubmit}>
